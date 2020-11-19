@@ -1,0 +1,3572 @@
+
+multicampus@M802 MINGW64 ~
+$ git --version
+git version 2.25.0.windows.1
+
+multicampus@M802 MINGW64 ~
+$ git config --global user.name "Chaeyeogn Lee"
+
+multicampus@M802 MINGW64 ~
+$ git config --global user.email "lcy707@naver.com"
+
+multicampus@M802 MINGW64 ~
+$ git config --global core.editor vim
+
+multicampus@M802 MINGW64 ~
+$ git config --global --list
+user.name=Chaeyeogn Lee
+user.email=lcy707@naver.com
+core.editor=vim
+
+multicampus@M802 MINGW64 ~
+$ mkdir ~/gittest
+
+multicampus@M802 MINGW64 ~
+$ cd gittest
+
+multicampus@M802 MINGW64 ~/gittest
+$ mkdir my_project
+
+multicampus@M802 MINGW64 ~/gittest
+$ cd my_project
+
+multicampus@M802 MINGW64 ~/gittest/my_project
+$ ls -la
+total 0
+drwxr-xr-x 1 multicampus 197121 0  1월 17 11:09 ./
+drwxr-xr-x 1 multicampus 197121 0  1월 17 11:09 ../
+
+multicampus@M802 MINGW64 ~/gittest/my_project
+$ git init
+Initialized empty Git repository in C:/Users/multicampus/gittest/my_project/.git/
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ls -la
+total 4
+drwxr-xr-x 1 multicampus 197121 0  1월 17 11:10 ./
+drwxr-xr-x 1 multicampus 197121 0  1월 17 11:09 ../
+drwxr-xr-x 1 multicampus 197121 0  1월 17 11:10 .git/
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git remote add origin 'https://lab.ssafy.com/lcy707/codepresso.git'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git remote -v
+origin  https://lab.ssafy.com/lcy707/codepresso.git (fetch)
+origin  https://lab.ssafy.com/lcy707/codepresso.git (push)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        TestService.java
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add TestService.java
+warning: LF will be replaced by CRLF in TestService.java.
+The file will have its original line endings in your working directory
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   TestService.java
+
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git config --global core.safecrlf false
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit
+[master (root-commit) 85fc838] Commit 1 for TestService
+ 1 file changed, 2 insertions(+)
+ create mode 100644 TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git diff
+diff --git a/TestService.java b/TestService.java
+index d47c087..c7e9c31 100644
+--- a/TestService.java
++++ b/TestService.java
+@@ -1,2 +1,3 @@
+ write code
+-
++write code 2
++write code 3
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestService.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   TestService.java
+
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m "Commit 2 for TestService"
+[master 1e60fa0] Commit 2 for TestService
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 1e60fa031d7d40ad5adf4db81d2859c4475305b6 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log --help
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi ~/.gitconfig
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log -u
+commit 1e60fa031d7d40ad5adf4db81d2859c4475305b6 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2 for TestService
+
+diff --git a/TestService.java b/TestService.java
+index d47c087..c7e9c31 100644
+--- a/TestService.java
++++ b/TestService.java
+@@ -1,2 +1,3 @@
+ write code
+-
++write code 2
++write code 3
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+diff --git a/TestService.java b/TestService.java
+new file mode 100644
+index 0000000..d47c087
+--- /dev/null
++++ b/TestService.java
+@@ -0,0 +1,2 @@
++write code
++
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ^C
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log -u '85fc8385f5a6e637e4deeb7d4090b2f5596845e3'
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+diff --git a/TestService.java b/TestService.java
+new file mode 100644
+index 0000000..d47c087
+--- /dev/null
++++ b/TestService.java
+@@ -0,0 +1,2 @@
++write code
++
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log -1
+commit 1e60fa031d7d40ad5adf4db81d2859c4475305b6 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log -2
+commit 1e60fa031d7d40ad5adf4db81d2859c4475305b6 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log --name-only
+commit 1e60fa031d7d40ad5adf4db81d2859c4475305b6 (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2 for TestService
+
+TestService.java
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log --oneline
+1e60fa0 (HEAD -> master) Commit 2 for TestService
+85fc838 Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git show ' 85fc8385f5a6e637e4deeb7d4090b2f5596845e3'
+fatal: ambiguous argument ' 85fc8385f5a6e637e4deeb7d4090b2f5596845e3': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git show '85fc8385f5a6e637e4deeb7d4090b2f5596845e3'
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+diff --git a/TestService.java b/TestService.java
+new file mode 100644
+index 0000000..d47c087
+--- /dev/null
++++ b/TestService.java
+@@ -0,0 +1,2 @@
++write code
++
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit --amend
+[master 9cd1564] Commit 2 for TestService
+ Author: Chaeyeogn Lee <lcy707@naver.com>
+ Date: Fri Jan 17 11:28:44 2020 +0900
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit --amend
+[master 149f79d] Commit 2-2 for TestService
+ Author: Chaeyeogn Lee <lcy707@naver.com>
+ Date: Fri Jan 17 11:28:44 2020 +0900
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a (HEAD -> master)
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git revert '149f79d2184068c437d0d3dc6e9657d17133a72a'
+[master 43efc86] Revert "Commit 2-2 for TestService"
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ cat TestService.java
+write code
+
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://lab.ssafy.com/lcy707/codepresso.git/'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://lab.ssafy.com/lcy707/codepresso.git/'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://lab.ssafy.com/lcy707/codepresso.git/'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://lab.ssafy.com/lcy707/codepresso.git/'
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 692 bytes | 692.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://lab.ssafy.com/lcy707/codepresso.git
+ * [new branch]      master -> master
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ cd ~/gittest
+
+multicampus@M802 MINGW64 ~/gittest
+$ mkdir git_project
+
+multicampus@M802 MINGW64 ~/gittest
+$ cd git_project
+
+multicampus@M802 MINGW64 ~/gittest/git_project
+$ git clone https://github.com/git/git.git
+Cloning into 'git'...
+remote: Enumerating objects: 179, done.
+remote: Counting objects: 100% (179/179), done.
+remote: Compressing objects: 100% (88/88), done.
+remote: Total 280260 (delta 98), reused 159 (delta 91), pack-reused 280081
+Receiving objects: 100% (280260/280260), 130.03 MiB | 15.82 MiB/s, done.
+Resolving deltas: 100% (208362/208362), done.
+Updating files: 100% (3688/3688), done.
+
+multicampus@M802 MINGW64 ~/gittest/git_project
+$ ls -la
+total 160
+drwxr-xr-x 1 multicampus 197121 0  1월 17 12:55 ./
+drwxr-xr-x 1 multicampus 197121 0  1월 17 12:54 ../
+drwxr-xr-x 1 multicampus 197121 0  1월 17 12:55 git/
+
+multicampus@M802 MINGW64 ~/gittest/git_project
+$ cd git
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ ls -la
+total 7873
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 ./
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 ../
+-rw-r--r-- 1 multicampus 197121    327  1월 17 12:55 .cirrus.yml
+-rw-r--r-- 1 multicampus 197121   5266  1월 17 12:55 .clang-format
+-rw-r--r-- 1 multicampus 197121    300  1월 17 12:55 .editorconfig
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 .git/
+-rw-r--r-- 1 multicampus 197121    561  1월 17 12:55 .gitattributes
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 .github/
+-rw-r--r-- 1 multicampus 197121   3699  1월 17 12:55 .gitignore
+-rw-r--r-- 1 multicampus 197121    157  1월 17 12:55 .gitmodules
+-rw-r--r-- 1 multicampus 197121  16966  1월 17 12:55 .mailmap
+-rw-r--r-- 1 multicampus 197121    970  1월 17 12:55 .travis.yml
+-rw-r--r-- 1 multicampus 197121    421  1월 17 12:55 .tsan-suppressions
+-rw-r--r-- 1 multicampus 197121   7198  1월 17 12:55 abspath.c
+-rw-r--r-- 1 multicampus 197121   1513  1월 17 12:55 aclocal.m4
+-rw-r--r-- 1 multicampus 197121  31406  1월 17 12:55 add-interactive.c
+-rw-r--r-- 1 multicampus 197121    714  1월 17 12:55 add-interactive.h
+-rw-r--r-- 1 multicampus 197121  38481  1월 17 12:55 add-patch.c
+-rw-r--r-- 1 multicampus 197121   6965  1월 17 12:55 advice.c
+-rw-r--r-- 1 multicampus 197121   1537  1월 17 12:55 advice.h
+-rw-r--r-- 1 multicampus 197121   2253  1월 17 12:55 alias.c
+-rw-r--r-- 1 multicampus 197121    322  1월 17 12:55 alias.h
+-rw-r--r-- 1 multicampus 197121   3374  1월 17 12:55 alloc.c
+-rw-r--r-- 1 multicampus 197121    570  1월 17 12:55 alloc.h
+-rw-r--r-- 1 multicampus 197121 138635  1월 17 12:55 apply.c
+-rw-r--r-- 1 multicampus 197121   5608  1월 17 12:55 apply.h
+-rw-r--r-- 1 multicampus 197121  16089  1월 17 12:55 archive.c
+-rw-r--r-- 1 multicampus 197121   1571  1월 17 12:55 archive.h
+-rw-r--r-- 1 multicampus 197121  13479  1월 17 12:55 archive-tar.c
+-rw-r--r-- 1 multicampus 197121  18439  1월 17 12:55 archive-zip.c
+-rw-r--r-- 1 multicampus 197121   2314  1월 17 12:55 argv-array.c
+-rw-r--r-- 1 multicampus 197121   3035  1월 17 12:55 argv-array.h
+-rw-r--r-- 1 multicampus 197121  30143  1월 17 12:55 attr.c
+-rw-r--r-- 1 multicampus 197121   6696  1월 17 12:55 attr.h
+-rw-r--r-- 1 multicampus 197121  21191  1월 17 12:55 azure-pipelines.yml
+-rw-r--r-- 1 multicampus 197121    828  1월 17 12:55 banned.h
+-rw-r--r-- 1 multicampus 197121   2957  1월 17 12:55 base85.c
+-rw-r--r-- 1 multicampus 197121  28507  1월 17 12:55 bisect.c
+-rw-r--r-- 1 multicampus 197121   1133  1월 17 12:55 bisect.h
+-rw-r--r-- 1 multicampus 197121  85685  1월 17 12:55 blame.c
+-rw-r--r-- 1 multicampus 197121   5693  1월 17 12:55 blame.h
+-rw-r--r-- 1 multicampus 197121    484  1월 17 12:55 blob.c
+-rw-r--r-- 1 multicampus 197121    713  1월 17 12:55 blob.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 block-sha1/
+-rw-r--r-- 1 multicampus 197121  10638  1월 17 12:55 branch.c
+-rw-r--r-- 1 multicampus 197121   3154  1월 17 12:55 branch.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 builtin/
+-rw-r--r-- 1 multicampus 197121  12623  1월 17 12:55 builtin.h
+-rw-r--r-- 1 multicampus 197121   7763  1월 17 12:55 bulk-checkin.c
+-rw-r--r-- 1 multicampus 197121    339  1월 17 12:55 bulk-checkin.h
+-rw-r--r-- 1 multicampus 197121  13468  1월 17 12:55 bundle.c
+-rw-r--r-- 1 multicampus 197121    857  1월 17 12:55 bundle.h
+-rw-r--r-- 1 multicampus 197121  70067  1월 17 12:55 cache.h
+-rw-r--r-- 1 multicampus 197121  22087  1월 17 12:55 cache-tree.c
+-rw-r--r-- 1 multicampus 197121   2190  1월 17 12:55 cache-tree.h
+-rw-r--r-- 1 multicampus 197121   1945  1월 17 12:55 chdir-notify.c
+-rw-r--r-- 1 multicampus 197121   2629  1월 17 12:55 chdir-notify.h
+-rwxr-xr-x 1 multicampus 197121    387  1월 17 12:55 check_bindir*
+-rwxr-xr-x 1 multicampus 197121    596  1월 17 12:55 check-builtins.sh*
+-rw-r--r-- 1 multicampus 197121   2040  1월 17 12:55 checkout.c
+-rw-r--r-- 1 multicampus 197121    384  1월 17 12:55 checkout.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 ci/
+-rw-r--r-- 1 multicampus 197121   4065  1월 17 12:55 CODE_OF_CONDUCT.md
+-rw-r--r-- 1 multicampus 197121   9504  1월 17 12:55 color.c
+-rw-r--r-- 1 multicampus 197121   5006  1월 17 12:55 color.h
+-rw-r--r-- 1 multicampus 197121  10054  1월 17 12:55 column.c
+-rw-r--r-- 1 multicampus 197121   1501  1월 17 12:55 column.h
+-rw-r--r-- 1 multicampus 197121  44851  1월 17 12:55 combine-diff.c
+-rw-r--r-- 1 multicampus 197121  11504  1월 17 12:55 command-list.txt
+-rw-r--r-- 1 multicampus 197121  42878  1월 17 12:55 commit.c
+-rw-r--r-- 1 multicampus 197121  14494  1월 17 12:55 commit.h
+-rw-r--r-- 1 multicampus 197121  57161  1월 17 12:55 commit-graph.c
+-rw-r--r-- 1 multicampus 197121   3602  1월 17 12:55 commit-graph.h
+-rw-r--r-- 1 multicampus 197121  20362  1월 17 12:55 commit-reach.c
+-rw-r--r-- 1 multicampus 197121   3941  1월 17 12:55 commit-reach.h
+-rw-r--r-- 1 multicampus 197121   1869  1월 17 12:55 commit-slab.h
+-rw-r--r-- 1 multicampus 197121   1415  1월 17 12:55 commit-slab-decl.h
+-rw-r--r-- 1 multicampus 197121   2869  1월 17 12:55 commit-slab-impl.h
+-rw-r--r-- 1 multicampus 197121   1426  1월 17 12:55 common-main.c
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 compat/
+-rw-r--r-- 1 multicampus 197121  85809  1월 17 12:55 config.c
+-rw-r--r-- 1 multicampus 197121  22469  1월 17 12:55 config.h
+-rw-r--r-- 1 multicampus 197121   1695  1월 17 12:55 config.mak.dev
+-rw-r--r-- 1 multicampus 197121    564  1월 17 12:55 config.mak.in
+-rw-r--r-- 1 multicampus 197121  25043  1월 17 12:55 config.mak.uname
+-rw-r--r-- 1 multicampus 197121  40729  1월 17 12:55 configure.ac
+-rw-r--r-- 1 multicampus 197121  34333  1월 17 12:55 connect.c
+-rw-r--r-- 1 multicampus 197121    916  1월 17 12:55 connect.h
+-rw-r--r-- 1 multicampus 197121   4092  1월 17 12:55 connected.c
+-rw-r--r-- 1 multicampus 197121   2145  1월 17 12:55 connected.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 contrib/
+-rw-r--r-- 1 multicampus 197121  51132  1월 17 12:55 convert.c
+-rw-r--r-- 1 multicampus 197121   4371  1월 17 12:55 convert.h
+-rw-r--r-- 1 multicampus 197121   1406  1월 17 12:55 copy.c
+-rw-r--r-- 1 multicampus 197121  19125  1월 17 12:55 COPYING
+-rw-r--r-- 1 multicampus 197121   8420  1월 17 12:55 credential.c
+-rw-r--r-- 1 multicampus 197121   9912  1월 17 12:55 credential.h
+-rw-r--r-- 1 multicampus 197121   3453  1월 17 12:55 credential-cache.c
+-rw-r--r-- 1 multicampus 197121   7346  1월 17 12:55 credential-cache--daemon.c
+-rw-r--r-- 1 multicampus 197121   5410  1월 17 12:55 credential-store.c
+-rw-r--r-- 1 multicampus 197121   4364  1월 17 12:55 csum-file.c
+-rw-r--r-- 1 multicampus 197121   1377  1월 17 12:55 csum-file.h
+-rw-r--r-- 1 multicampus 197121   2734  1월 17 12:55 ctype.c
+-rw-r--r-- 1 multicampus 197121  37000  1월 17 12:55 daemon.c
+-rw-r--r-- 1 multicampus 197121  32533  1월 17 12:55 date.c
+-rw-r--r-- 1 multicampus 197121   1873  1월 17 12:55 decorate.c
+-rw-r--r-- 1 multicampus 197121   1464  1월 17 12:55 decorate.h
+-rw-r--r-- 1 multicampus 197121   3533  1월 17 12:55 delta.h
+-rw-r--r-- 1 multicampus 197121  12498  1월 17 12:55 delta-islands.c
+-rw-r--r-- 1 multicampus 197121    590  1월 17 12:55 delta-islands.h
+-rwxr-xr-x 1 multicampus 197121   1069  1월 17 12:55 detect-compiler*
+-rw-r--r-- 1 multicampus 197121 199667  1월 17 12:55 diff.c
+-rw-r--r-- 1 multicampus 197121  20359  1월 17 12:55 diff.h
+-rw-r--r-- 1 multicampus 197121   6292  1월 17 12:55 diffcore.h
+-rw-r--r-- 1 multicampus 197121   9562  1월 17 12:55 diffcore-break.c
+-rw-r--r-- 1 multicampus 197121   5855  1월 17 12:55 diffcore-delta.c
+-rw-r--r-- 1 multicampus 197121   2578  1월 17 12:55 diffcore-order.c
+-rw-r--r-- 1 multicampus 197121   7005  1월 17 12:55 diffcore-pickaxe.c
+-rw-r--r-- 1 multicampus 197121  18993  1월 17 12:55 diffcore-rename.c
+-rw-r--r-- 1 multicampus 197121  16386  1월 17 12:55 diff-delta.c
+-rw-r--r-- 1 multicampus 197121  16113  1월 17 12:55 diff-lib.c
+-rw-r--r-- 1 multicampus 197121   7677  1월 17 12:55 diff-no-index.c
+-rw-r--r-- 1 multicampus 197121  96417  1월 17 12:55 dir.c
+-rw-r--r-- 1 multicampus 197121  17361  1월 17 12:55 dir.h
+-rw-r--r-- 1 multicampus 197121   6182  1월 17 12:55 dir-iterator.c
+-rw-r--r-- 1 multicampus 197121   4494  1월 17 12:55 dir-iterator.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 Documentation/
+-rw-r--r-- 1 multicampus 197121   3034  1월 17 12:55 editor.c
+-rw-r--r-- 1 multicampus 197121  14871  1월 17 12:55 entry.c
+-rw-r--r-- 1 multicampus 197121  11399  1월 17 12:55 environment.c
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 ewah/
+-rw-r--r-- 1 multicampus 197121   8559  1월 17 12:55 exec-cmd.c
+-rw-r--r-- 1 multicampus 197121    499  1월 17 12:55 exec-cmd.h
+-rw-r--r-- 1 multicampus 197121  93605  1월 17 12:55 fast-import.c
+-rw-r--r-- 1 multicampus 197121    524  1월 17 12:55 fetch-negotiator.c
+-rw-r--r-- 1 multicampus 197121   1746  1월 17 12:55 fetch-negotiator.h
+-rw-r--r-- 1 multicampus 197121  52693  1월 17 12:55 fetch-pack.c
+-rw-r--r-- 1 multicampus 197121   3015  1월 17 12:55 fetch-pack.h
+-rw-r--r-- 1 multicampus 197121    187  1월 17 12:55 fmt-merge-msg.h
+-rw-r--r-- 1 multicampus 197121  29360  1월 17 12:55 fsck.c
+-rw-r--r-- 1 multicampus 197121   3388  1월 17 12:55 fsck.h
+-rw-r--r-- 1 multicampus 197121   8876  1월 17 12:55 fsmonitor.c
+-rw-r--r-- 1 multicampus 197121   2514  1월 17 12:55 fsmonitor.h
+-rw-r--r-- 1 multicampus 197121    445  1월 17 12:55 fuzz-commit-graph.c
+-rw-r--r-- 1 multicampus 197121    323  1월 17 12:55 fuzz-pack-headers.c
+-rw-r--r-- 1 multicampus 197121    290  1월 17 12:55 fuzz-pack-idx.c
+-rwxr-xr-x 1 multicampus 197121   1828  1월 17 12:55 generate-cmdlist.sh*
+-rw-r--r-- 1 multicampus 197121   5977  1월 17 12:55 gettext.c
+-rw-r--r-- 1 multicampus 197121   2306  1월 17 12:55 gettext.h
+-rw-r--r-- 1 multicampus 197121  27450  1월 17 12:55 git.c
+-rw-r--r-- 1 multicampus 197121    659  1월 17 12:55 git.rc
+-rwxr-xr-x 1 multicampus 197121  46106  1월 17 12:55 git-add--interactive.perl*
+-rwxr-xr-x 1 multicampus 197121  36938  1월 17 12:55 git-archimport.perl*
+-rwxr-xr-x 1 multicampus 197121   8290  1월 17 12:55 git-bisect.sh*
+-rw-r--r-- 1 multicampus 197121  37798  1월 17 12:55 git-compat-util.h
+-rwxr-xr-x 1 multicampus 197121  12889  1월 17 12:55 git-cvsexportcommit.perl*
+-rwxr-xr-x 1 multicampus 197121  32059  1월 17 12:55 git-cvsimport.perl*
+-rwxr-xr-x 1 multicampus 197121 162677  1월 17 12:55 git-cvsserver.perl*
+-rwxr-xr-x 1 multicampus 197121   2236  1월 17 12:55 git-difftool--helper.sh*
+-rwxr-xr-x 1 multicampus 197121  16339  1월 17 12:55 git-filter-branch.sh*
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 git-gui/
+-rwxr-xr-x 1 multicampus 197121  22349  1월 17 12:55 git-instaweb.sh*
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 gitk-git/
+-rwxr-xr-x 1 multicampus 197121  16411  1월 17 12:55 git-legacy-stash.sh*
+-rwxr-xr-x 1 multicampus 197121   2477  1월 17 12:55 git-merge-octopus.sh*
+-rwxr-xr-x 1 multicampus 197121   3695  1월 17 12:55 git-merge-one-file.sh*
+-rwxr-xr-x 1 multicampus 197121    944  1월 17 12:55 git-merge-resolve.sh*
+-rwxr-xr-x 1 multicampus 197121  10297  1월 17 12:55 git-mergetool.sh*
+-rw-r--r-- 1 multicampus 197121   9201  1월 17 12:55 git-mergetool--lib.sh
+-rwxr-xr-x 1 multicampus 197121 157892  1월 17 12:55 git-p4.py*
+-rw-r--r-- 1 multicampus 197121   2650  1월 17 12:55 git-parse-remote.sh
+-rwxr-xr-x 1 multicampus 197121   3693  1월 17 12:55 git-quiltimport.sh*
+-rw-r--r-- 1 multicampus 197121  29605  1월 17 12:55 git-rebase--preserve-merges.sh
+-rwxr-xr-x 1 multicampus 197121   4125  1월 17 12:55 git-request-pull.sh*
+-rwxr-xr-x 1 multicampus 197121  58213  1월 17 12:55 git-send-email.perl*
+-rw-r--r-- 1 multicampus 197121   2488  1월 17 12:55 git-sh-i18n.sh
+-rw-r--r-- 1 multicampus 197121   9363  1월 17 12:55 git-sh-setup.sh
+-rwxr-xr-x 1 multicampus 197121  25832  1월 17 12:55 git-submodule.sh*
+-rwxr-xr-x 1 multicampus 197121  64451  1월 17 12:55 git-svn.perl*
+-rwxr-xr-x 1 multicampus 197121    752  1월 17 12:55 GIT-VERSION-GEN*
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 gitweb/
+-rwxr-xr-x 1 multicampus 197121   4401  1월 17 12:55 git-web--browse.sh*
+-rw-r--r-- 1 multicampus 197121  10568  1월 17 12:55 gpg-interface.c
+-rw-r--r-- 1 multicampus 197121   1574  1월 17 12:55 gpg-interface.h
+-rw-r--r-- 1 multicampus 197121  42338  1월 17 12:55 graph.c
+-rw-r--r-- 1 multicampus 197121   9089  1월 17 12:55 graph.h
+-rw-r--r-- 1 multicampus 197121  56795  1월 17 12:55 grep.c
+-rw-r--r-- 1 multicampus 197121   5527  1월 17 12:55 grep.h
+-rw-r--r-- 1 multicampus 197121   5056  1월 17 12:55 hash.h
+-rw-r--r-- 1 multicampus 197121   8174  1월 17 12:55 hashmap.c
+-rw-r--r-- 1 multicampus 197121  18876  1월 17 12:55 hashmap.h
+-rw-r--r-- 1 multicampus 197121  20917  1월 17 12:55 help.c
+-rw-r--r-- 1 multicampus 197121   3261  1월 17 12:55 help.h
+-rw-r--r-- 1 multicampus 197121   3340  1월 17 12:55 hex.c
+-rw-r--r-- 1 multicampus 197121  69500  1월 17 12:55 http.c
+-rw-r--r-- 1 multicampus 197121   7481  1월 17 12:55 http.h
+-rw-r--r-- 1 multicampus 197121  20152  1월 17 12:55 http-backend.c
+-rw-r--r-- 1 multicampus 197121   1992  1월 17 12:55 http-fetch.c
+-rw-r--r-- 1 multicampus 197121  53261  1월 17 12:55 http-push.c
+-rw-r--r-- 1 multicampus 197121  16041  1월 17 12:55 http-walker.c
+-rw-r--r-- 1 multicampus 197121  16478  1월 17 12:55 ident.c
+-rw-r--r-- 1 multicampus 197121  39132  1월 17 12:55 imap-send.c
+-rw-r--r-- 1 multicampus 197121  10463  1월 17 12:55 INSTALL
+-rw-r--r-- 1 multicampus 197121    688  1월 17 12:55 interdiff.c
+-rw-r--r-- 1 multicampus 197121    127  1월 17 12:55 interdiff.h
+-rw-r--r-- 1 multicampus 197121   2250  1월 17 12:55 iterator.h
+-rw-r--r-- 1 multicampus 197121   9112  1월 17 12:55 json-writer.c
+-rw-r--r-- 1 multicampus 197121   4374  1월 17 12:55 json-writer.h
+-rw-r--r-- 1 multicampus 197121  13585  1월 17 12:55 khash.h
+-rw-r--r-- 1 multicampus 197121  21876  1월 17 12:55 kwset.c
+-rw-r--r-- 1 multicampus 197121   2628  1월 17 12:55 kwset.h
+-rw-r--r-- 1 multicampus 197121   2656  1월 17 12:55 levenshtein.c
+-rw-r--r-- 1 multicampus 197121    211  1월 17 12:55 levenshtein.h
+-rw-r--r-- 1 multicampus 197121  27370  1월 17 12:55 LGPL-2.1
+-rw-r--r-- 1 multicampus 197121   4436  1월 17 12:55 linear-assignment.c
+-rw-r--r-- 1 multicampus 197121    758  1월 17 12:55 linear-assignment.h
+-rw-r--r-- 1 multicampus 197121  34185  1월 17 12:55 line-log.c
+-rw-r--r-- 1 multicampus 197121   1808  1월 17 12:55 line-log.h
+-rw-r--r-- 1 multicampus 197121   7065  1월 17 12:55 line-range.c
+-rw-r--r-- 1 multicampus 197121   1440  1월 17 12:55 line-range.h
+-rw-r--r-- 1 multicampus 197121   5893  1월 17 12:55 list.h
+-rw-r--r-- 1 multicampus 197121  11953  1월 17 12:55 list-objects.c
+-rw-r--r-- 1 multicampus 197121    790  1월 17 12:55 list-objects.h
+-rw-r--r-- 1 multicampus 197121  20138  1월 17 12:55 list-objects-filter.c
+-rw-r--r-- 1 multicampus 197121   3379  1월 17 12:55 list-objects-filter.h
+-rw-r--r-- 1 multicampus 197121  10357  1월 17 12:55 list-objects-filter-options.c
+-rw-r--r-- 1 multicampus 197121   3946  1월 17 12:55 list-objects-filter-options.h
+-rw-r--r-- 1 multicampus 197121  11579  1월 17 12:55 ll-merge.c
+-rw-r--r-- 1 multicampus 197121   3199  1월 17 12:55 ll-merge.h
+-rw-r--r-- 1 multicampus 197121   5919  1월 17 12:55 lockfile.c
+-rw-r--r-- 1 multicampus 197121  11045  1월 17 12:55 lockfile.h
+-rw-r--r-- 1 multicampus 197121  28127  1월 17 12:55 log-tree.c
+-rw-r--r-- 1 multicampus 197121   1493  1월 17 12:55 log-tree.h
+-rw-r--r-- 1 multicampus 197121   2813  1월 17 12:55 ls-refs.c
+-rw-r--r-- 1 multicampus 197121    227  1월 17 12:55 ls-refs.h
+-rw-r--r-- 1 multicampus 197121  29619  1월 17 12:55 mailinfo.c
+-rw-r--r-- 1 multicampus 197121   1091  1월 17 12:55 mailinfo.h
+-rw-r--r-- 1 multicampus 197121   9454  1월 17 12:55 mailmap.c
+-rw-r--r-- 1 multicampus 197121    304  1월 17 12:55 mailmap.h
+-rw-r--r-- 1 multicampus 197121 105885  1월 17 12:55 Makefile
+-rw-r--r-- 1 multicampus 197121   9099  1월 17 12:55 match-trees.c
+-rw-r--r-- 1 multicampus 197121   3368  1월 17 12:55 mem-pool.c
+-rw-r--r-- 1 multicampus 197121   1465  1월 17 12:55 mem-pool.h
+-rw-r--r-- 1 multicampus 197121   2952  1월 17 12:55 merge.c
+-rw-r--r-- 1 multicampus 197121   2196  1월 17 12:55 merge-blobs.c
+-rw-r--r-- 1 multicampus 197121    243  1월 17 12:55 merge-blobs.h
+-rw-r--r-- 1 multicampus 197121 123830  1월 17 12:55 merge-recursive.c
+-rw-r--r-- 1 multicampus 197121   3889  1월 17 12:55 merge-recursive.h
+-rw-r--r-- 1 multicampus 197121   1587  1월 17 12:55 mergesort.c
+-rw-r--r-- 1 multicampus 197121    591  1월 17 12:55 mergesort.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 mergetools/
+-rw-r--r-- 1 multicampus 197121  38526  1월 17 12:55 midx.c
+-rw-r--r-- 1 multicampus 197121   1941  1월 17 12:55 midx.h
+-rw-r--r-- 1 multicampus 197121  19995  1월 17 12:55 name-hash.c
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 negotiator/
+-rw-r--r-- 1 multicampus 197121  39466  1월 17 12:55 notes.c
+-rw-r--r-- 1 multicampus 197121  13285  1월 17 12:55 notes.h
+-rw-r--r-- 1 multicampus 197121   2439  1월 17 12:55 notes-cache.c
+-rw-r--r-- 1 multicampus 197121    563  1월 17 12:55 notes-cache.h
+-rw-r--r-- 1 multicampus 197121  23947  1월 17 12:55 notes-merge.c
+-rw-r--r-- 1 multicampus 197121   3096  1월 17 12:55 notes-merge.h
+-rw-r--r-- 1 multicampus 197121   5325  1월 17 12:55 notes-utils.c
+-rw-r--r-- 1 multicampus 197121   1619  1월 17 12:55 notes-utils.h
+-rw-r--r-- 1 multicampus 197121  14281  1월 17 12:55 object.c
+-rw-r--r-- 1 multicampus 197121   6663  1월 17 12:55 object.h
+-rw-r--r-- 1 multicampus 197121  13101  1월 17 12:55 object-store.h
+-rw-r--r-- 1 multicampus 197121   1545  1월 17 12:55 oidmap.c
+-rw-r--r-- 1 multicampus 197121   2432  1월 17 12:55 oidmap.h
+-rw-r--r-- 1 multicampus 197121   1668  1월 17 12:55 oidset.c
+-rw-r--r-- 1 multicampus 197121   2743  1월 17 12:55 oidset.h
+-rw-r--r-- 1 multicampus 197121   3532  1월 17 12:55 pack.h
+-rw-r--r-- 1 multicampus 197121  28865  1월 17 12:55 pack-bitmap.c
+-rw-r--r-- 1 multicampus 197121   2482  1월 17 12:55 pack-bitmap.h
+-rw-r--r-- 1 multicampus 197121  13600  1월 17 12:55 pack-bitmap-write.c
+-rw-r--r-- 1 multicampus 197121   5965  1월 17 12:55 pack-check.c
+-rw-r--r-- 1 multicampus 197121  56967  1월 17 12:55 packfile.c
+-rw-r--r-- 1 multicampus 197121   7219  1월 17 12:55 packfile.h
+-rw-r--r-- 1 multicampus 197121   5303  1월 17 12:55 pack-objects.c
+-rw-r--r-- 1 multicampus 197121  12934  1월 17 12:55 pack-objects.h
+-rw-r--r-- 1 multicampus 197121   6100  1월 17 12:55 pack-revindex.c
+-rw-r--r-- 1 multicampus 197121    338  1월 17 12:55 pack-revindex.h
+-rw-r--r-- 1 multicampus 197121  11321  1월 17 12:55 pack-write.c
+-rw-r--r-- 1 multicampus 197121   5457  1월 17 12:55 pager.c
+-rw-r--r-- 1 multicampus 197121  27155  1월 17 12:55 parse-options.c
+-rw-r--r-- 1 multicampus 197121  13473  1월 17 12:55 parse-options.h
+-rw-r--r-- 1 multicampus 197121   6977  1월 17 12:55 parse-options-cb.c
+-rw-r--r-- 1 multicampus 197121   2502  1월 17 12:55 patch-delta.c
+-rw-r--r-- 1 multicampus 197121   3619  1월 17 12:55 patch-ids.c
+-rw-r--r-- 1 multicampus 197121    733  1월 17 12:55 patch-ids.h
+-rw-r--r-- 1 multicampus 197121  40488  1월 17 12:55 path.c
+-rw-r--r-- 1 multicampus 197121   6138  1월 17 12:55 path.h
+-rw-r--r-- 1 multicampus 197121  19201  1월 17 12:55 pathspec.c
+-rw-r--r-- 1 multicampus 197121   5308  1월 17 12:55 pathspec.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 perl/
+-rw-r--r-- 1 multicampus 197121  13873  1월 17 12:55 pkt-line.c
+-rw-r--r-- 1 multicampus 197121   8297  1월 17 12:55 pkt-line.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 po/
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 ppc/
+-rw-r--r-- 1 multicampus 197121   4008  1월 17 12:55 preload-index.c
+-rw-r--r-- 1 multicampus 197121  51514  1월 17 12:55 pretty.c
+-rw-r--r-- 1 multicampus 197121   3929  1월 17 12:55 pretty.h
+-rw-r--r-- 1 multicampus 197121   2153  1월 17 12:55 prio-queue.c
+-rw-r--r-- 1 multicampus 197121   1724  1월 17 12:55 prio-queue.h
+-rw-r--r-- 1 multicampus 197121   9264  1월 17 12:55 progress.c
+-rw-r--r-- 1 multicampus 197121    642  1월 17 12:55 progress.h
+-rw-r--r-- 1 multicampus 197121   5914  1월 17 12:55 promisor-remote.c
+-rw-r--r-- 1 multicampus 197121    904  1월 17 12:55 promisor-remote.h
+-rw-r--r-- 1 multicampus 197121   1533  1월 17 12:55 prompt.c
+-rw-r--r-- 1 multicampus 197121    177  1월 17 12:55 prompt.h
+-rw-r--r-- 1 multicampus 197121   2639  1월 17 12:55 protocol.c
+-rw-r--r-- 1 multicampus 197121   1126  1월 17 12:55 protocol.h
+-rw-r--r-- 1 multicampus 197121  12512  1월 17 12:55 quote.c
+-rw-r--r-- 1 multicampus 197121   3297  1월 17 12:55 quote.h
+-rw-r--r-- 1 multicampus 197121  15159  1월 17 12:55 range-diff.c
+-rw-r--r-- 1 multicampus 197121    505  1월 17 12:55 range-diff.h
+-rw-r--r-- 1 multicampus 197121   6295  1월 17 12:55 reachable.c
+-rw-r--r-- 1 multicampus 197121    316  1월 17 12:55 reachable.h
+-rw-r--r-- 1 multicampus 197121 104210  1월 17 12:55 read-cache.c
+-rw-r--r-- 1 multicampus 197121   3338  1월 17 12:55 README.md
+-rw-r--r-- 1 multicampus 197121   6448  1월 17 12:55 rebase-interactive.c
+-rw-r--r-- 1 multicampus 197121    539  1월 17 12:55 rebase-interactive.h
+-rw-r--r-- 1 multicampus 197121  72262  1월 17 12:55 ref-filter.c
+-rw-r--r-- 1 multicampus 197121   4905  1월 17 12:55 ref-filter.h
+-rw-r--r-- 1 multicampus 197121   8738  1월 17 12:55 reflog-walk.c
+-rw-r--r-- 1 multicampus 197121    912  1월 17 12:55 reflog-walk.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 refs/
+-rw-r--r-- 1 multicampus 197121  61496  1월 17 12:55 refs.c
+-rw-r--r-- 1 multicampus 197121  33151  1월 17 12:55 refs.h
+-rw-r--r-- 1 multicampus 197121   5299  1월 17 12:55 refspec.c
+-rw-r--r-- 1 multicampus 197121   2256  1월 17 12:55 refspec.h
+-rw-r--r-- 1 multicampus 197121     33  1월 17 12:55 RelNotes
+-rw-r--r-- 1 multicampus 197121  62129  1월 17 12:55 remote.c
+-rw-r--r-- 1 multicampus 197121  10467  1월 17 12:55 remote.h
+-rw-r--r-- 1 multicampus 197121  39233  1월 17 12:55 remote-curl.c
+-rw-r--r-- 1 multicampus 197121   8750  1월 17 12:55 remote-testsvn.c
+-rw-r--r-- 1 multicampus 197121   2080  1월 17 12:55 replace-object.c
+-rw-r--r-- 1 multicampus 197121   1140  1월 17 12:55 replace-object.h
+-rw-r--r-- 1 multicampus 197121   2586  1월 17 12:55 repo-settings.c
+-rw-r--r-- 1 multicampus 197121   6935  1월 17 12:55 repository.c
+-rw-r--r-- 1 multicampus 197121   5502  1월 17 12:55 repository.h
+-rw-r--r-- 1 multicampus 197121  34195  1월 17 12:55 rerere.c
+-rw-r--r-- 1 multicampus 197121   1465  1월 17 12:55 rerere.h
+-rw-r--r-- 1 multicampus 197121   4725  1월 17 12:55 resolve-undo.c
+-rw-r--r-- 1 multicampus 197121    600  1월 17 12:55 resolve-undo.h
+-rw-r--r-- 1 multicampus 197121 114759  1월 17 12:55 revision.c
+-rw-r--r-- 1 multicampus 197121  12684  1월 17 12:55 revision.h
+-rw-r--r-- 1 multicampus 197121  43507  1월 17 12:55 run-command.c
+-rw-r--r-- 1 multicampus 197121  17264  1월 17 12:55 run-command.h
+-rw-r--r-- 1 multicampus 197121  17148  1월 17 12:55 send-pack.c
+-rw-r--r-- 1 multicampus 197121    934  1월 17 12:55 send-pack.h
+-rw-r--r-- 1 multicampus 197121 154487  1월 17 12:55 sequencer.c
+-rw-r--r-- 1 multicampus 197121   6911  1월 17 12:55 sequencer.h
+-rw-r--r-- 1 multicampus 197121   6643  1월 17 12:55 serve.c
+-rw-r--r-- 1 multicampus 197121    351  1월 17 12:55 serve.h
+-rw-r--r-- 1 multicampus 197121   8051  1월 17 12:55 server-info.c
+-rw-r--r-- 1 multicampus 197121  36950  1월 17 12:55 setup.c
+-rw-r--r-- 1 multicampus 197121   1999  1월 17 12:55 sha1-array.c
+-rw-r--r-- 1 multicampus 197121   3743  1월 17 12:55 sha1-array.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 sha1collisiondetection/
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 sha1dc/
+-rw-r--r-- 1 multicampus 197121    927  1월 17 12:55 sha1dc_git.c
+-rw-r--r-- 1 multicampus 197121    641  1월 17 12:55 sha1dc_git.h
+-rw-r--r-- 1 multicampus 197121  64649  1월 17 12:55 sha1-file.c
+-rw-r--r-- 1 multicampus 197121   3398  1월 17 12:55 sha1-lookup.c
+-rw-r--r-- 1 multicampus 197121   1315  1월 17 12:55 sha1-lookup.h
+-rw-r--r-- 1 multicampus 197121  50993  1월 17 12:55 sha1-name.c
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 sha256/
+-rw-r--r-- 1 multicampus 197121  22439  1월 17 12:55 shallow.c
+-rw-r--r-- 1 multicampus 197121   4853  1월 17 12:55 shell.c
+-rw-r--r-- 1 multicampus 197121  10858  1월 17 12:55 sh-i18n--envsubst.c
+-rw-r--r-- 1 multicampus 197121    540  1월 17 12:55 shortlog.h
+-rw-r--r-- 1 multicampus 197121   5793  1월 17 12:55 sideband.c
+-rw-r--r-- 1 multicampus 197121    932  1월 17 12:55 sideband.h
+-rw-r--r-- 1 multicampus 197121   1179  1월 17 12:55 sigchain.c
+-rw-r--r-- 1 multicampus 197121   1782  1월 17 12:55 sigchain.h
+-rw-r--r-- 1 multicampus 197121  14360  1월 17 12:55 split-index.c
+-rw-r--r-- 1 multicampus 197121   1297  1월 17 12:55 split-index.h
+-rw-r--r-- 1 multicampus 197121   1246  1월 17 12:55 stable-qsort.c
+-rw-r--r-- 1 multicampus 197121  26297  1월 17 12:55 strbuf.c
+-rw-r--r-- 1 multicampus 197121  24307  1월 17 12:55 strbuf.h
+-rw-r--r-- 1 multicampus 197121  13197  1월 17 12:55 streaming.c
+-rw-r--r-- 1 multicampus 197121    499  1월 17 12:55 streaming.h
+-rw-r--r-- 1 multicampus 197121   8072  1월 17 12:55 string-list.c
+-rw-r--r-- 1 multicampus 197121  10327  1월 17 12:55 string-list.h
+-rw-r--r-- 1 multicampus 197121  62889  1월 17 12:55 submodule.c
+-rw-r--r-- 1 multicampus 197121   5803  1월 17 12:55 submodule.h
+-rw-r--r-- 1 multicampus 197121  22554  1월 17 12:55 submodule-config.c
+-rw-r--r-- 1 multicampus 197121   3756  1월 17 12:55 submodule-config.h
+-rw-r--r-- 1 multicampus 197121   5895  1월 17 12:55 sub-process.c
+-rw-r--r-- 1 multicampus 197121   3322  1월 17 12:55 sub-process.h
+-rw-r--r-- 1 multicampus 197121   9855  1월 17 12:55 symlinks.c
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 t/
+-rw-r--r-- 1 multicampus 197121   5826  1월 17 12:55 tag.c
+-rw-r--r-- 1 multicampus 197121    751  1월 17 12:55 tag.h
+-rw-r--r-- 1 multicampus 197121    723  1월 17 12:55 tar.h
+-rw-r--r-- 1 multicampus 197121   8840  1월 17 12:55 tempfile.c
+-rw-r--r-- 1 multicampus 197121   9591  1월 17 12:55 tempfile.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 templates/
+-rw-r--r-- 1 multicampus 197121   2815  1월 17 12:55 thread-utils.c
+-rw-r--r-- 1 multicampus 197121   1503  1월 17 12:55 thread-utils.h
+-rw-r--r-- 1 multicampus 197121   6905  1월 17 12:55 tmp-objdir.c
+-rw-r--r-- 1 multicampus 197121   1622  1월 17 12:55 tmp-objdir.h
+-rw-r--r-- 1 multicampus 197121  12337  1월 17 12:55 trace.c
+-rw-r--r-- 1 multicampus 197121   8569  1월 17 12:55 trace.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 trace2/
+-rw-r--r-- 1 multicampus 197121  19036  1월 17 12:55 trace2.c
+-rw-r--r-- 1 multicampus 197121  18569  1월 17 12:55 trace2.h
+-rw-r--r-- 1 multicampus 197121  31379  1월 17 12:55 trailer.c
+-rw-r--r-- 1 multicampus 197121   2631  1월 17 12:55 trailer.h
+-rw-r--r-- 1 multicampus 197121  38803  1월 17 12:55 transport.c
+-rw-r--r-- 1 multicampus 197121   8509  1월 17 12:55 transport.h
+-rw-r--r-- 1 multicampus 197121  40307  1월 17 12:55 transport-helper.c
+-rw-r--r-- 1 multicampus 197121   2704  1월 17 12:55 transport-internal.h
+-rw-r--r-- 1 multicampus 197121   6733  1월 17 12:55 tree.c
+-rw-r--r-- 1 multicampus 197121   1222  1월 17 12:55 tree.h
+-rw-r--r-- 1 multicampus 197121  19097  1월 17 12:55 tree-diff.c
+-rw-r--r-- 1 multicampus 197121  33084  1월 17 12:55 tree-walk.c
+-rw-r--r-- 1 multicampus 197121   7052  1월 17 12:55 tree-walk.h
+-rw-r--r-- 1 multicampus 197121   9766  1월 17 12:55 unicode-width.h
+-rwxr-xr-x 1 multicampus 197121    101  1월 17 12:55 unimplemented.sh*
+-rw-r--r-- 1 multicampus 197121   2574  1월 17 12:55 unix-socket.c
+-rw-r--r-- 1 multicampus 197121    165  1월 17 12:55 unix-socket.h
+-rw-r--r-- 1 multicampus 197121  69439  1월 17 12:55 unpack-trees.c
+-rw-r--r-- 1 multicampus 197121   2809  1월 17 12:55 unpack-trees.h
+-rw-r--r-- 1 multicampus 197121  42186  1월 17 12:55 upload-pack.c
+-rw-r--r-- 1 multicampus 197121    522  1월 17 12:55 upload-pack.h
+-rw-r--r-- 1 multicampus 197121   2728  1월 17 12:55 url.c
+-rw-r--r-- 1 multicampus 197121    721  1월 17 12:55 url.h
+-rw-r--r-- 1 multicampus 197121  19168  1월 17 12:55 urlmatch.c
+-rw-r--r-- 1 multicampus 197121   2083  1월 17 12:55 urlmatch.h
+-rw-r--r-- 1 multicampus 197121   7180  1월 17 12:55 usage.c
+-rw-r--r-- 1 multicampus 197121  11961  1월 17 12:55 userdiff.c
+-rw-r--r-- 1 multicampus 197121    929  1월 17 12:55 userdiff.h
+-rw-r--r-- 1 multicampus 197121  21163  1월 17 12:55 utf8.c
+-rw-r--r-- 1 multicampus 197121   3744  1월 17 12:55 utf8.h
+-rw-r--r-- 1 multicampus 197121    690  1월 17 12:55 varint.c
+-rw-r--r-- 1 multicampus 197121    161  1월 17 12:55 varint.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 vcs-svn/
+-rw-r--r-- 1 multicampus 197121    757  1월 17 12:55 version.c
+-rw-r--r-- 1 multicampus 197121    240  1월 17 12:55 version.h
+-rw-r--r-- 1 multicampus 197121   5516  1월 17 12:55 versioncmp.c
+-rw-r--r-- 1 multicampus 197121   7891  1월 17 12:55 walker.c
+-rw-r--r-- 1 multicampus 197121   1149  1월 17 12:55 walker.h
+-rw-r--r-- 1 multicampus 197121   8274  1월 17 12:55 wildmatch.c
+-rw-r--r-- 1 multicampus 197121    277  1월 17 12:55 wildmatch.h
+-rw-r--r-- 1 multicampus 197121  14523  1월 17 12:55 worktree.c
+-rw-r--r-- 1 multicampus 197121   3919  1월 17 12:55 worktree.h
+-rwxr-xr-x 1 multicampus 197121    946  1월 17 12:55 wrap-for-bin.sh*
+-rw-r--r-- 1 multicampus 197121  15172  1월 17 12:55 wrapper.c
+-rw-r--r-- 1 multicampus 197121   1635  1월 17 12:55 write-or-die.c
+-rw-r--r-- 1 multicampus 197121   9958  1월 17 12:55 ws.c
+-rw-r--r-- 1 multicampus 197121  72700  1월 17 12:55 wt-status.c
+-rw-r--r-- 1 multicampus 197121   4417  1월 17 12:55 wt-status.h
+drwxr-xr-x 1 multicampus 197121      0  1월 17 12:55 xdiff/
+-rw-r--r-- 1 multicampus 197121   7844  1월 17 12:55 xdiff-interface.c
+-rw-r--r-- 1 multicampus 197121   2154  1월 17 12:55 xdiff-interface.h
+-rw-r--r-- 1 multicampus 197121   6544  1월 17 12:55 zlib.c
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ git log --reverse
+commit e83c5163316f89bfbde7d9ab23ca2e25604af290
+commit e83c5163316f89bfbde7d9ab23ca2e25604af290
+commit e83c5163316f89bfbde7d9ab23ca2e25604af290
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Thu Apr 7 15:13:13 2005 -0700
+
+    Initial revision of "git", the information manager from hell
+
+commit 8bc9a0c769ac1df7820f2dbf8f7b7d64835e3c68
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Thu Apr 7 15:16:10 2005 -0700
+
+    Add copyright notices.
+
+    The tool interface sucks (especially "committing" information, which is just
+    me doing everything by hand from the command line), but I think this is in
+    theory actually a viable way of describing the world. So copyright it.
+
+commit e497ea2a9b6c378f01d092c210af20cbee762475
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Thu Apr 7 21:03:28 2005 -0700
+
+    Make read-tree actually unpack the whole tree.
+
+    I needed this to make a "sparse" archive conversion from my old
+    BitKeeper tree data. The scripts to do the conversion are just
+    incredibly ugly, but they seem to validate the notion that you
+    can actually use this silly 'git' thing to save your history in.
+
+commit bf0c6e839c692142784caf07b523cd69442e57a5
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 09:16:38 2005 -0700
+
+    Make "cat-file" output the file contents to stdout.
+
+    New syntax: "cat-file -t <sha1>" shows the tag, while "cat-file <tag> <sha1>"
+    outputs the file contents after checking that the supplied tag matches.
+
+commit 19b2860cba5742ab31fd682b80fefefac19be141
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 09:59:28 2005 -0700
+
+    Use "-Wall -O2" for the compiler to get more warnings.
+
+    And fix up the warnings that it pointed out. Let's keep the tree
+    clean from early on.
+
+    Not that the code is very beautiful anyway ;)
+
+commit 24778e335a6450e34257a311d0bf4a12bdb3006c
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 14:42:29 2005 -0700
+
+    Factor out "read_sha1_file" into mapping/inflating/unmapping.
+
+    This allows us to also actually check the sha1 hash using these
+    routines. Needed for the "fsck" thing.
+
+commit 2ade9340262cb87163b5c5c270268175ff3b3c15
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 15:01:15 2005 -0700
+
+    Add "check_sha1_signature()" helper function
+
+    And fix up header declarations.
+
+commit 20222118ae4cbd0a7ba91a7012574cd2f91101ec
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 15:02:42 2005 -0700
+
+    Add first cut at "fsck-cache" that validates the SHA1 object store.
+
+    It doesn't complain about mine. But it also doesn't yet check for
+    inter-object reachability etc.
+
+commit 7660a188dfd0c5e52884790bebf5637d24f990d4
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 15:04:51 2005 -0700
+
+    Add new fsck-cache to Makefile.
+
+    This is what happens when there are no nice tools to tell you to do things
+    properly.
+
+commit 94261677654d493f6a6219c78aae986a146f92d4
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 15:31:19 2005 -0700
+
+    Add "-lz" to link line to get in zlib.
+
+    Not all Linux distributions seem to need it (notably not YDL on ppc64), but
+    enough ones obviously do.
+
+commit 1ea34e365b1ea233be332245bc34a8df415a7d61
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Fri Apr 8 17:11:14 2005 -0700
+
+    Make fsck-cache start parsing the object types, and checking their
+    internal format.
+
+    This doesn't yet check the reachability information, but we're getting
+    there.. Slowly.
+
+commit 59c1e249808c6ba38194733fa00efddb9e0eb488
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Sat Apr 9 00:25:22 2005 -0700
+
+    Fix missing return values and some error tests for empty index files
+
+    Patches from Dave Jones and Ingo Molnar, but since I don't have any
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ git log
+commit 232378479ee6c66206d47a9be175e3a39682aea6 (HEAD -> master, origin/master, origin/HEAD)
+Merge: d0654dc308 b6d4d82bd5
+Author: Junio C Hamano <gitster@pobox.com>
+Date:   Thu Jan 16 15:18:46 2020 -0800
+
+    Sync with maint
+
+    * maint:
+      msvc: accommodate for vcpkg's upgrade to OpenSSL v1.1.x
+
+commit b6d4d82bd5a49197d5d2f4f81c08da0d461cfcf1 (origin/maint)
+Author: Johannes Schindelin <Johannes.Schindelin@gmx.de>
+Date:   Wed Jan 15 22:57:34 2020 +0000
+
+    msvc: accommodate for vcpkg's upgrade to OpenSSL v1.1.x
+
+    With the upgrade, the library names changed from libeay32/ssleay32 to
+    libcrypto/libssl.
+
+    Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
+    Signed-off-by: Junio C Hamano <gitster@pobox.com>
+
+commit d0654dc308b0ba76dd8ed7bbb33c8d8f7aacd783 (tag: v2.25.0)
+Author: Junio C Hamano <gitster@pobox.com>
+Date:   Mon Jan 13 10:16:43 2020 -0800
+
+    Git 2.25
+
+    Signed-off-by: Junio C Hamano <gitster@pobox.com>
+
+commit b4615e40a8125477e18490d868f7b65954372b43
+Merge: 4d924528d8 ddc12c429b
+Author: Junio C Hamano <gitster@pobox.com>
+Date:   Sun Jan 12 13:28:13 2020 -0800
+
+    Merge tag 'l10n-2.25.0-rnd1' of git://github.com/git-l10n/git-po
+
+    l10n-2.25.0-rnd1
+
+    * tag 'l10n-2.25.0-rnd1' of git://github.com/git-l10n/git-po:
+      l10n: zh_CN: for git v2.25.0 l10n round 1
+      l10n: Update Catalan translation
+      l10n: de.po: Update German translation v2.25.0 round 1
+      l10n: de.po: Reword generation numbers
+      l10n: bg.po: Updated Bulgarian translation (4800t)
+      l10n: es: 2.25.0 round #1
+      l10n: sv.po: Update Swedish translation (4800t0f0u)
+      l10n: fr.po v2.25.0 rnd 1
+      l10n: vi(4800t): Updated Vietnamese translation v2.25.0
+      l10n: zh_TW.po: update translation for v2.25.0 round 1
+      l10n: it.po: update the Italian translation for Git 2.25.0
+      l10n: git.pot: v2.25.0 round 1 (119 new, 13 removed)
+      l10n: Update Catalan translation
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ ls
+abspath.c                   git-instaweb.sh*                protocol.c
+aclocal.m4                  gitk-git/                       protocol.h
+add-interactive.c           git-legacy-stash.sh*            quote.c
+add-interactive.h           git-merge-octopus.sh*           quote.h
+add-patch.c                 git-merge-one-file.sh*          range-diff.c
+advice.c                    git-merge-resolve.sh*           range-diff.h
+advice.h                    git-mergetool.sh*               reachable.c
+alias.c                     git-mergetool--lib.sh           reachable.h
+alias.h                     git-p4.py*                      read-cache.c
+alloc.c                     git-parse-remote.sh             README.md
+alloc.h                     git-quiltimport.sh*             rebase-interactive.c
+apply.c                     git-rebase--preserve-merges.sh  rebase-interactive.h
+apply.h                     git-request-pull.sh*            ref-filter.c
+archive.c                   git-send-email.perl*            ref-filter.h
+archive.h                   git-sh-i18n.sh                  reflog-walk.c
+archive-tar.c               git-sh-setup.sh                 reflog-walk.h
+archive-zip.c               git-submodule.sh*               refs/
+argv-array.c                git-svn.perl*                   refs.c
+argv-array.h                GIT-VERSION-GEN*                refs.h
+attr.c                      gitweb/                         refspec.c
+attr.h                      git-web--browse.sh*             refspec.h
+azure-pipelines.yml         gpg-interface.c                 RelNotes
+banned.h                    gpg-interface.h                 remote.c
+base85.c                    graph.c                         remote.h
+bisect.c                    graph.h                         remote-curl.c
+bisect.h                    grep.c                          remote-testsvn.c
+blame.c                     grep.h                          replace-object.c
+blame.h                     hash.h                          replace-object.h
+blob.c                      hashmap.c                       repo-settings.c
+blob.h                      hashmap.h                       repository.c
+block-sha1/                 help.c                          repository.h
+branch.c                    help.h                          rerere.c
+branch.h                    hex.c                           rerere.h
+builtin/                    http.c                          resolve-undo.c
+builtin.h                   http.h                          resolve-undo.h
+bulk-checkin.c              http-backend.c                  revision.c
+bulk-checkin.h              http-fetch.c                    revision.h
+bundle.c                    http-push.c                     run-command.c
+bundle.h                    http-walker.c                   run-command.h
+cache.h                     ident.c                         send-pack.c
+cache-tree.c                imap-send.c                     send-pack.h
+cache-tree.h                INSTALL                         sequencer.c
+chdir-notify.c              interdiff.c                     sequencer.h
+chdir-notify.h              interdiff.h                     serve.c
+check_bindir*               iterator.h                      serve.h
+check-builtins.sh*          json-writer.c                   server-info.c
+checkout.c                  json-writer.h                   setup.c
+checkout.h                  khash.h                         sha1-array.c
+ci/                         kwset.c                         sha1-array.h
+CODE_OF_CONDUCT.md          kwset.h                         sha1collisiondetection/
+color.c                     levenshtein.c                   sha1dc/
+color.h                     levenshtein.h                   sha1dc_git.c
+column.c                    LGPL-2.1                        sha1dc_git.h
+column.h                    linear-assignment.c             sha1-file.c
+combine-diff.c              linear-assignment.h             sha1-lookup.c
+command-list.txt            line-log.c                      sha1-lookup.h
+commit.c                    line-log.h                      sha1-name.c
+commit.h                    line-range.c                    sha256/
+commit-graph.c              line-range.h                    shallow.c
+commit-graph.h              list.h                          shell.c
+commit-reach.c              list-objects.c                  sh-i18n--envsubst.c
+commit-reach.h              list-objects.h                  shortlog.h
+commit-slab.h               list-objects-filter.c           sideband.c
+commit-slab-decl.h          list-objects-filter.h           sideband.h
+commit-slab-impl.h          list-objects-filter-options.c   sigchain.c
+common-main.c               list-objects-filter-options.h   sigchain.h
+compat/                     ll-merge.c                      split-index.c
+config.c                    ll-merge.h                      split-index.h
+config.h                    lockfile.c                      stable-qsort.c
+config.mak.dev              lockfile.h                      strbuf.c
+config.mak.in               log-tree.c                      strbuf.h
+config.mak.uname            log-tree.h                      streaming.c
+configure.ac                ls-refs.c                       streaming.h
+connect.c                   ls-refs.h                       string-list.c
+connect.h                   mailinfo.c                      string-list.h
+connected.c                 mailinfo.h                      submodule.c
+connected.h                 mailmap.c                       submodule.h
+contrib/                    mailmap.h                       submodule-config.c
+convert.c                   Makefile                        submodule-config.h
+convert.h                   match-trees.c                   sub-process.c
+copy.c                      mem-pool.c                      sub-process.h
+COPYING                     mem-pool.h                      symlinks.c
+credential.c                merge.c                         t/
+credential.h                merge-blobs.c                   tag.c
+credential-cache.c          merge-blobs.h                   tag.h
+credential-cache--daemon.c  merge-recursive.c               tar.h
+credential-store.c          merge-recursive.h               tempfile.c
+csum-file.c                 mergesort.c                     tempfile.h
+csum-file.h                 mergesort.h                     templates/
+ctype.c                     mergetools/                     thread-utils.c
+daemon.c                    midx.c                          thread-utils.h
+date.c                      midx.h                          tmp-objdir.c
+decorate.c                  name-hash.c                     tmp-objdir.h
+decorate.h                  negotiator/                     trace.c
+delta.h                     notes.c                         trace.h
+delta-islands.c             notes.h                         trace2/
+delta-islands.h             notes-cache.c                   trace2.c
+detect-compiler*            notes-cache.h                   trace2.h
+diff.c                      notes-merge.c                   trailer.c
+diff.h                      notes-merge.h                   trailer.h
+diffcore.h                  notes-utils.c                   transport.c
+diffcore-break.c            notes-utils.h                   transport.h
+diffcore-delta.c            object.c                        transport-helper.c
+diffcore-order.c            object.h                        transport-internal.h
+diffcore-pickaxe.c          object-store.h                  tree.c
+diffcore-rename.c           oidmap.c                        tree.h
+diff-delta.c                oidmap.h                        tree-diff.c
+diff-lib.c                  oidset.c                        tree-walk.c
+diff-no-index.c             oidset.h                        tree-walk.h
+dir.c                       pack.h                          unicode-width.h
+dir.h                       pack-bitmap.c                   unimplemented.sh*
+dir-iterator.c              pack-bitmap.h                   unix-socket.c
+dir-iterator.h              pack-bitmap-write.c             unix-socket.h
+Documentation/              pack-check.c                    unpack-trees.c
+editor.c                    packfile.c                      unpack-trees.h
+entry.c                     packfile.h                      upload-pack.c
+environment.c               pack-objects.c                  upload-pack.h
+ewah/                       pack-objects.h                  url.c
+exec-cmd.c                  pack-revindex.c                 url.h
+exec-cmd.h                  pack-revindex.h                 urlmatch.c
+fast-import.c               pack-write.c                    urlmatch.h
+fetch-negotiator.c          pager.c                         usage.c
+fetch-negotiator.h          parse-options.c                 userdiff.c
+fetch-pack.c                parse-options.h                 userdiff.h
+fetch-pack.h                parse-options-cb.c              utf8.c
+fmt-merge-msg.h             patch-delta.c                   utf8.h
+fsck.c                      patch-ids.c                     varint.c
+fsck.h                      patch-ids.h                     varint.h
+fsmonitor.c                 path.c                          vcs-svn/
+fsmonitor.h                 path.h                          version.c
+fuzz-commit-graph.c         pathspec.c                      version.h
+fuzz-pack-headers.c         pathspec.h                      versioncmp.c
+fuzz-pack-idx.c             perl/                           walker.c
+generate-cmdlist.sh*        pkt-line.c                      walker.h
+gettext.c                   pkt-line.h                      wildmatch.c
+gettext.h                   po/                             wildmatch.h
+git.c                       ppc/                            worktree.c
+git.rc                      preload-index.c                 worktree.h
+git-add--interactive.perl*  pretty.c                        wrap-for-bin.sh*
+git-archimport.perl*        pretty.h                        wrapper.c
+git-bisect.sh*              prio-queue.c                    write-or-die.c
+git-compat-util.h           prio-queue.h                    ws.c
+git-cvsexportcommit.perl*   progress.c                      wt-status.c
+git-cvsimport.perl*         progress.h                      wt-status.h
+git-cvsserver.perl*         promisor-remote.c               xdiff/
+git-difftool--helper.sh*    promisor-remote.h               xdiff-interface.c
+git-filter-branch.sh*       prompt.c                        xdiff-interface.h
+git-gui/                    prompt.h                        zlib.c
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ cd my_project
+bash: cd: my_project: No such file or directory
+
+multicampus@M802 MINGW64 ~/gittest/git_project/git (master)
+$ cd ~/gittest/my_project
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi Aservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add 'Bservice.java'
+fatal: pathspec 'Bservice.java' did not match any files
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m 'A Commit #q - create AService'
+On branch master
+Untracked files:
+        Aservice.java
+
+nothing added to commit but untracked files present
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add 'AService'
+fatal: pathspec 'AService' did not match any files
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add 'Aservice'
+fatal: pathspec 'Aservice' did not match any files
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add Aservice
+fatal: pathspec 'Aservice' did not match any files
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ls
+Aservice.java  TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add Aservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m 'A Commit #1 - create Aservice'
+[master 13c1dd1] A Commit #1 - create Aservice
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Aservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ cd ..
+
+multicampus@M802 MINGW64 ~/gittest
+$ cd my_project
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650 (origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ cd .
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ls
+Aservice.java  TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650 (origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650 (origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://lab.ssafy.com/lcy707/codepresso.git
+   43efc86..13c1dd1  master -> master
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe (HEAD -> master, origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 12 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (12/12), 1.38 KiB | 29.00 KiB/s, done.
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+   13c1dd1..6db3eaa  master     -> origin/master
+Updating 13c1dd1..6db3eaa
+Fast-forward
+ Bservice.java | 5 +++++
+ Cservice.java | 1 +
+ 2 files changed, 6 insertions(+)
+ create mode 100644 Bservice.java
+ create mode 100644 Cservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d (HEAD -> master, origin/master)
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit b834a5a00a6bea47e64b5bda92b21505836de877
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:43:53 2020 +0900
+
+    B Commit #1 - create BService
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+:...skipping...
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d (HEAD -> master, origin/master)
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit b834a5a00a6bea47e64b5bda92b21505836de877
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:43:53 2020 +0900
+
+    B Commit #1 - create BService
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+~
+~
+~
+~
+~
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi Aservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m
+error: switch `m' requires a value
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m 'A Commit #1'
+On branch master
+Changes not staged for commit:
+        modified:   Aservice.java
+
+no changes added to commit
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m 'A Commit #1 - create Aservice''
+> ^C
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit -m 'A Commit #1 - create Aservice'
+On branch master
+Changes not staged for commit:
+        modified:   Aservice.java
+
+no changes added to commit
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d (HEAD -> master, origin/master)
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit b834a5a00a6bea47e64b5bda92b21505836de877
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:43:53 2020 +0900
+
+    B Commit #1 - create BService
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+    Commit 1 for TestService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Everything up-to-date
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ add Aservice.java
+bash: add: command not found
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add Aservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), 277 bytes | 19.00 KiB/s, done.
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+   6db3eaa..8ce08e2  master     -> origin/master
+Updating 6db3eaa..8ce08e2
+Fast-forward
+ Subway_Info_Bot.py | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Subway_Info_Bot.py
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Everything up-to-date
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 8ce08e2cf746f6cad3289c8f784e85ca42a5c8c4 (HEAD -> master, origin/master)
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 14:07:18 2020 +0900
+
+    create Subway_Info_Bot
+
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit b834a5a00a6bea47e64b5bda92b21505836de877
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:43:53 2020 +0900
+
+    B Commit #1 - create BService
+
+commit 43efc869f0ebb51657d7a592237d8a15a6ddf650
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 12:41:01 2020 +0900
+
+    Revert "Commit 2-2 for TestService"
+
+    This reverts commit 149f79d2184068c437d0d3dc6e9657d17133a72a.
+
+commit 149f79d2184068c437d0d3dc6e9657d17133a72a
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:28:44 2020 +0900
+
+    Commit 2-2 for TestService
+
+commit 85fc8385f5a6e637e4deeb7d4090b2f5596845e3
+Author: Chaeyeogn Lee <lcy707@naver.com>
+Date:   Fri Jan 17 11:21:33 2020 +0900
+
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (5/5), 528 bytes | 24.00 KiB/s, done.
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+   8ce08e2..114c0c4  master     -> origin/master
+Updating 8ce08e2..114c0c4
+Fast-forward
+ Cservice.java | 2 ++
+ 1 file changed, 2 insertions(+)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Everything up-to-date
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Aservice.java
+
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit
+[master 3007e15] commit name
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 278 bytes | 278.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://lab.ssafy.com/lcy707/codepresso.git
+   114c0c4..3007e15  master -> master
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 3007e15f43aebff6e03e6335d137d0eccdbefea5 (HEAD -> master, origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:10:04 2020 +0900
+
+    commit name
+
+commit 114c0c498644908396cf4320598b8f6aac59a982
+Merge: 5800eef 8ce08e2
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 14:07:45 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 8ce08e2cf746f6cad3289c8f784e85ca42a5c8c4
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 14:07:18 2020 +0900
+
+    create Subway_Info_Bot
+
+commit 5800eef41fbb4ffd640819a286cf585a46201862
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 14:06:59 2020 +0900
+
+    C Commit #2 - update CService
+
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+commit b834a5a00a6bea47e64b5bda92b21505836de877
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:43:53 2020 +0900
+
+    B Commit #1 - create BService
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi CService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add CService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit
+On branch master
+Changes not staged for commit:
+        modified:   Cservice.java
+
+no changes added to commit
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit
+On branch master
+Changes not staged for commit:
+        modified:   Cservice.java
+
+no changes added to commit
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Cservice.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ls
+Aservice.java  Bservice.java  Cservice.java  Subway_Info_Bot.py  TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi CService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi Cservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git add Cservice.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git commit
+[master 90e89a2] commit test
+ 1 file changed, 4 insertions(+)
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git pull origin master
+From https://lab.ssafy.com/lcy707/codepresso
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://lab.ssafy.com/lcy707/codepresso.git
+   3007e15..90e89a2  master -> master
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ git log
+commit 90e89a2690371cd93021d562a649ba80cd66b782 (HEAD -> master, origin/master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:17:37 2020 +0900
+
+    commit test
+
+commit 3007e15f43aebff6e03e6335d137d0eccdbefea5
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:10:04 2020 +0900
+
+    commit name
+
+commit 114c0c498644908396cf4320598b8f6aac59a982
+Merge: 5800eef 8ce08e2
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 14:07:45 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 8ce08e2cf746f6cad3289c8f784e85ca42a5c8c4
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 14:07:18 2020 +0900
+
+    create Subway_Info_Bot
+
+commit 5800eef41fbb4ffd640819a286cf585a46201862
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 14:06:59 2020 +0900
+
+    C Commit #2 - update CService
+
+commit 6db3eaac7e8f2038f021a651678e23d3c674cd6d
+Merge: cdf7931 9b38240
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:57:27 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 9b38240bc342554ff266d6e72eede6a24a0fece9
+Merge: b834a5a 13c1dd1
+Author: Lim JinSub <neyo0311@naver.com>
+Date:   Fri Jan 17 13:53:33 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit cdf79313ad349e4845ab0a1906a60fd8bb402d1e
+Merge: 284d25f 13c1dd1
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:52:32 2020 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/lcy707/codepresso
+
+commit 284d25fb529b9668f8490162133dd4cd26900f72
+Author: Yujin Lee <ajph03102@naver.com>
+Date:   Fri Jan 17 13:47:17 2020 +0900
+
+    C commit #1 - create CService
+
+commit 13c1dd1fc1b48da84ef0408b9dd2ce04435c6ffe
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 13:46:53 2020 +0900
+
+    A Commit #1 - create Aservice
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ^C^C^C^C^Cvi vvdddddddfdfdddddddddddffffdkfjkfjdkfjdfk
+
+bash: i: command not found
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ ls
+Aservice.java  Bservice.java  Cservice.java  Subway_Info_Bot.py  TestService.java
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ vi Subway_Info_Bot.py
+
+multicampus@M802 MINGW64 ~/gittest/my_project (master)
+$ cd ~/gittest
+
+multicampus@M802 MINGW64 ~/gittest
+$ mkdir branch_test
+
+multicampus@M802 MINGW64 ~/gittest
+$ cd branch_test
+
+multicampus@M802 MINGW64 ~/gittest/branch_test
+$ git init
+Initialized empty Git repository in C:/Users/multicampus/gittest/branch_test/.git/
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ ls -la
+total 4
+drwxr-xr-x 1 multicampus 197121 0  1월 17 14:34 ./
+drwxr-xr-x 1 multicampus 197121 0  1월 17 14:34 ../
+drwxr-xr-x 1 multicampus 197121 0  1월 17 14:34 .git/
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   MainService.java
+
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit -m "Commit 1 on master branch"
+[master (root-commit) ccd742c] Commit 1 on master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit -m "Commit 2 on master branch"
+[master fbc8c46] Commit 2 on master branch
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch feature-login
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+  feature-login
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> master, feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git branch
+* feature-login
+  master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git log
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> feature-login, master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ vi LoginService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git add LoginService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git commit -m "Commit 3 on feature-login branch"
+[feature-login 05ad56a] Commit 3 on feature-login branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LoginService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git log
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (HEAD -> feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ ls -la
+total 10
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:50 ./
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:34 ../
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:50 .git/
+-rw-r--r-- 1 multicampus 197121 19  1월 17 14:50 LoginService.java
+-rw-r--r-- 1 multicampus 197121 26  1월 17 14:40 MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+  feature-login
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ ls -la
+total 9
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:54 ./
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:34 ../
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:54 .git/
+-rw-r--r-- 1 multicampus 197121 26  1월 17 14:40 MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --all
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout login-feature
+error: pathspec 'login-feature' did not match any file(s) known to git
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout 'login-feature'
+error: pathspec 'login-feature' did not match any file(s) known to git
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git log
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (HEAD -> feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit -m "Commit 4 on master branch"
+[master 387bd77] Commit 4 on master branch
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --all
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --all --graph
+* commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+| Author: Chaeyeong Lee <lcy707@naver.com>
+| Date:   Fri Jan 17 15:00:44 2020 +0900
+|
+|     Commit 4 on master branch
+|
+| * commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (feature-login)
+|/  Author: Chaeyeong Lee <lcy707@naver.com>
+|   Date:   Fri Jan 17 14:50:30 2020 +0900
+|
+|       Commit 3 on feature-login branch
+|
+* commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+| Author: Chaeyeong Lee <lcy707@naver.com>
+| Date:   Fri Jan 17 14:41:12 2020 +0900
+|
+|     Commit 2 on master branch
+|
+* commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+  Author: Chaeyeong Lee <lcy707@naver.com>
+  Date:   Fri Jan 17 14:38:01 2020 +0900
+
+      Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log -u
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index d8ad151..86e81bf 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,2 +1,3 @@
+ write code 1
+ write code 2
++write code 3
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index e009951..d8ad151 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1 +1,2 @@
+ write code 1
++write code 2
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+diff --git a/MainService.java b/MainService.java
+new file mode 100644
+index 0000000..e009951
+--- /dev/null
++++ b/MainService.java
+@@ -0,0 +1 @@
++write code 1
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ cat MainService.java
+write code 1
+write code 2
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+  feature-login
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout -b issue
+Switched to a new branch 'issue'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git branch
+  feature-login
+* issue
+  master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git commit -m "Commit 5 for issue number-1"
+[issue 3a68513] Commit 5 for issue number-1
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git log
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71 (HEAD -> issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git commit -m "Commit 6 for issue number-2"
+[issue 190a636] Commit 6 for issue number-2
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git log
+commit 190a6360b7b367ce5327bf5f27900ddc41ae8541 (HEAD -> issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:25:47 2020 +0900
+
+    Commit 6 for issue number-2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge issue
+error: Your local changes to the following files would be overwritten by merge:
+        MainService.java
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 387bd77..190a636
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   MainService.java
+
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit "commit test"
+error: pathspec 'commit test' did not match any file(s) known to git
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41 (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ vi add MainService.java
+2 파일을 고치기
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git commit -m "commit test2"
+[master 80f41c0] commit test2
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge issue
+Auto-merging MainService.java
+CONFLICT (content): Merge conflict in MainService.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git log
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git merge issue
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git log
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ cat MainService.java
+write code 1
+write code 2
+write code 3
+<<<<<<< HEAD
+merge code 2
+=======
+fix issue-number 1
+fix issue-number 2
+>>>>>>> issue
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git branch -d issue
+error: The branch 'issue' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D issue'.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   MainService.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        add
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git reset --hard HEAD
+HEAD is now at 80f41c0 commit test2
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        add
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ rm -rf add
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --d
+fatal: unrecognized argument: --d
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a (HEAD -> master)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+  feature-login
+  issue
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout issue
+Switched to branch 'issue'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git log -u
+commit 190a6360b7b367ce5327bf5f27900ddc41ae8541 (HEAD -> issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:25:47 2020 +0900
+
+    Commit 6 for issue number-2
+
+diff --git a/MainService.java b/MainService.java
+index e5a1b46..31374e4 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -2,3 +2,4 @@ write code 1
+ write code 2
+ write code 3
+ fix issue-number 1
++fix issue-number 2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+diff --git a/MainService.java b/MainService.java
+index 86e81bf..e5a1b46 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,3 +1,4 @@
+ write code 1
+ write code 2
+ write code 3
++fix issue-number 1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index d8ad151..86e81bf 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,2 +1,3 @@
+ write code 1
+ write code 2
++write code 3
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index e009951..d8ad151 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1 +1,2 @@
+ write code 1
++write code 2
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+...skipping...
+commit 190a6360b7b367ce5327bf5f27900ddc41ae8541 (HEAD -> issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:25:47 2020 +0900
+
+    Commit 6 for issue number-2
+
+diff --git a/MainService.java b/MainService.java
+index e5a1b46..31374e4 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -2,3 +2,4 @@ write code 1
+ write code 2
+ write code 3
+ fix issue-number 1
++fix issue-number 2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+diff --git a/MainService.java b/MainService.java
+index 86e81bf..e5a1b46 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,3 +1,4 @@
+ write code 1
+ write code 2
+ write code 3
++fix issue-number 1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index d8ad151..86e81bf 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,2 +1,3 @@
+ write code 1
+ write code 2
++write code 3
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+diff --git a/MainService.java b/MainService.java
+index e009951..d8ad151 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1 +1,2 @@
+ write code 1
++write code 2
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git reset --hard 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+HEAD is now at 3a68513 Commit 5 for issue number-1
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git log
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71 (HEAD -> issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (issue)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge issue
+Auto-merging MainService.java
+CONFLICT (content): Merge conflict in MainService.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git diff
+diff --cc MainService.java
+index 1121211,e5a1b46..0000000
+--- a/MainService.java
++++ b/MainService.java
+@@@ -1,4 -1,4 +1,8 @@@
+  write code 1
+  write code 2
+  write code 3
+++<<<<<<< HEAD
+ +merge code 2
+++=======
++ fix issue-number 1
+++>>>>>>> issue
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git add .
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git commit -m "merge commit1"
+[master 77b8d3f] merge commit1
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077 (HEAD -> master)
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71 (issue)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge issue
+Already up to date.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch -d issue
+Deleted branch issue (was 3a68513).
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077 (HEAD -> master)
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git branch
+  feature-login
+* master
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge feature-login
+Merge made by the 'recursive' strategy.
+ LoginService.java | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LoginService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 955b5a3175400ae25be052ed5cc2e6fa9c0d5a4c (HEAD -> master)
+Merge: 77b8d3f 05ad56a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:00:02 2020 +0900
+
+    Merge branch 'feature-login'
+
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ cat MainService.java
+write code 1
+write code 2
+write code 3
+
+merge code 2
+
+fix issue-number 1
+
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ ls -la
+total 10
+drwxr-xr-x 1 multicampus 197121  0  1월 17 16:00 ./
+drwxr-xr-x 1 multicampus 197121  0  1월 17 14:34 ../
+drwxr-xr-x 1 multicampus 197121  0  1월 17 16:00 .git/
+-rw-r--r-- 1 multicampus 197121 20  1월 17 16:00 LoginService.java
+-rw-r--r-- 1 multicampus 197121 82  1월 17 15:55 MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 955b5a3175400ae25be052ed5cc2e6fa9c0d5a4c (HEAD -> master)
+Merge: 77b8d3f 05ad56a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:00:02 2020 +0900
+
+    Merge branch 'feature-login'
+
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git commit -m "Commit 7 on feature-login branch"
+[feature-login cc4d8a7] Commit 7 on feature-login branch
+ 1 file changed, 1 insertion(+)
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (feature-login)
+$ git checkout master
+Switched to branch 'master'
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git merge feature-login
+Auto-merging MainService.java
+CONFLICT (content): Merge conflict in MainService.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   MainService.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff
+Merging:
+MainService.java
+
+Normal merge conflict for 'MainService.java':
+  {local}: modified file
+  {remote}: modified file
+Hit return to start merge resolution tool (vimdiff): vimdiff
+4 파일을 고치기
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff
+No files need merging
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ cat MainService.java
+write code 1
+write code 2
+
+write code 3
+
+merge code 2
+
+fix issue-number 1
+
+
+write login code 2
+
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ vi MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git add MainService.java
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master|MERGING)
+$ git commit -m "Merge Commit2"
+[master 42bc277] Merge Commit2
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 42bc277bd93a8e1788cdc55f9d1060393f41ee9c (HEAD -> master)
+Merge: 955b5a3 cc4d8a7
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:24:12 2020 +0900
+
+    Merge Commit2
+
+commit cc4d8a749bd0da4738ecc054108668490f9470b7 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:10:49 2020 +0900
+
+    Commit 7 on feature-login branch
+
+commit 955b5a3175400ae25be052ed5cc2e6fa9c0d5a4c
+Merge: 77b8d3f 05ad56a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:00:02 2020 +0900
+
+    Merge branch 'feature-login'
+
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --oneline
+42bc277 (HEAD -> master) Merge Commit2
+cc4d8a7 (feature-login) Commit 7 on feature-login branch
+955b5a3 Merge branch 'feature-login'
+77b8d3f merge commit1
+80f41c0 commit test2
+3a68513 Commit 5 for issue number-1
+387bd77 Commit 4 on master branch
+05ad56a Commit 3 on feature-login branch
+fbc8c46 Commit 2 on master branch
+ccd742c Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git tag -a v1.0 -m "implemented login feature"
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log
+commit 42bc277bd93a8e1788cdc55f9d1060393f41ee9c (HEAD -> master, tag: v1.0)
+Merge: 955b5a3 cc4d8a7
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:24:12 2020 +0900
+
+    Merge Commit2
+
+commit cc4d8a749bd0da4738ecc054108668490f9470b7 (feature-login)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:10:49 2020 +0900
+
+    Commit 7 on feature-login branch
+
+commit 955b5a3175400ae25be052ed5cc2e6fa9c0d5a4c
+Merge: 77b8d3f 05ad56a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:00:02 2020 +0900
+
+    Merge branch 'feature-login'
+
+commit 77b8d3f6bb710e8d586b772692e23df7a3d26077
+Merge: 80f41c0 3a68513
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:55:49 2020 +0900
+
+    merge commit1
+
+commit 80f41c00d2eb1c491695c67f899b47b098ab2a5a
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:48:32 2020 +0900
+
+    commit test2
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+commit 387bd77244aa6b23b8001a2024ff0fcdaa121c41
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:00:44 2020 +0900
+
+    Commit 4 on master branch
+
+commit 05ad56adf3ade4f677b11e125b45b2397cb95657
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:50:30 2020 +0900
+
+    Commit 3 on feature-login branch
+
+commit fbc8c4699bb66b0c0a20184a0f28fea8ba4b8bfd
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:41:12 2020 +0900
+
+    Commit 2 on master branch
+
+commit ccd742ca8b66a3b64bd3be799091fe4806a80d99
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 14:38:01 2020 +0900
+
+    Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --oneline
+42bc277 (HEAD -> master, tag: v1.0) Merge Commit2
+cc4d8a7 (feature-login) Commit 7 on feature-login branch
+955b5a3 Merge branch 'feature-login'
+77b8d3f merge commit1
+80f41c0 commit test2
+3a68513 Commit 5 for issue number-1
+387bd77 Commit 4 on master branch
+05ad56a Commit 3 on feature-login branch
+fbc8c46 Commit 2 on master branch
+ccd742c Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git show v1.0
+tag v1.0
+Tagger: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:55:48 2020 +0900
+
+implemented login feature
+
+commit 42bc277bd93a8e1788cdc55f9d1060393f41ee9c (HEAD -> master, tag: v1.0)
+Merge: 955b5a3 cc4d8a7
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:24:12 2020 +0900
+
+    Merge Commit2
+
+diff --cc MainService.java
+index c07beb6,cae982f..1b897eb
+--- a/MainService.java
++++ b/MainService.java
+@@@ -1,8 -1,3 +1,12 @@@
+  write code 1
+  write code 2
+++
+ +write code 3
+ +
+ +merge code 2
+ +
+ +fix issue-number 1
+ +
+++
++ write login code 2
+++
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --oneline
+42bc277 (HEAD -> master, tag: v1.0) Merge Commit2
+cc4d8a7 (feature-login) Commit 7 on feature-login branch
+955b5a3 Merge branch 'feature-login'
+77b8d3f merge commit1
+80f41c0 commit test2
+3a68513 Commit 5 for issue number-1
+387bd77 Commit 4 on master branch
+05ad56a Commit 3 on feature-login branch
+fbc8c46 Commit 2 on master branch
+ccd742c Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git tag -a v0.1 3a68513 "fix issue number-1"
+fatal: too many params
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git tag -a v0.1 3a68513 -m "fix issue number-1"
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git log --oneline
+42bc277 (HEAD -> master, tag: v1.0) Merge Commit2
+cc4d8a7 (feature-login) Commit 7 on feature-login branch
+955b5a3 Merge branch 'feature-login'
+77b8d3f merge commit1
+80f41c0 commit test2
+3a68513 (tag: v0.1) Commit 5 for issue number-1
+387bd77 Commit 4 on master branch
+05ad56a Commit 3 on feature-login branch
+fbc8c46 Commit 2 on master branch
+ccd742c Commit 1 on master branch
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$ git show v0.1
+tag v0.1
+Tagger: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 16:58:25 2020 +0900
+
+fix issue number-1
+
+commit 3a68513c5720ec4f4b3938002fb14f755c6d4d71 (tag: v0.1)
+Author: Chaeyeong Lee <lcy707@naver.com>
+Date:   Fri Jan 17 15:19:59 2020 +0900
+
+    Commit 5 for issue number-1
+
+diff --git a/MainService.java b/MainService.java
+index 86e81bf..e5a1b46 100644
+--- a/MainService.java
++++ b/MainService.java
+@@ -1,3 +1,4 @@
+ write code 1
+ write code 2
+ write code 3
++fix issue-number 1
+
+multicampus@M802 MINGW64 ~/gittest/branch_test (master)
+$

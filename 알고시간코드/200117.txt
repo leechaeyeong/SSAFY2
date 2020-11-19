@@ -1,0 +1,107 @@
+https://lab.ssafy.com/
+
+git
+
+svd : git 대신 사용
+
+원격 저장소 remote repository
+- 기업의 서버
+로컬 저장소 local repository
+- 내  pc
+
+clone
+내 pc로 가져오는 과정 >로컬 저장소로 복사
+
+-작업 directory : 논리적 파일 관리는 안함, 여기서 개발 
+스테이징 영역에서 관리 , 실제 커밋 준비
+
+커밋을 local로 만들어야 올릴 수 있음
+
+커밋 - 조직마다 다를 수 있음
+
+pull : 다른 커밋을 내 로컬에 받아옴
+
+vim :  가장 많이 사용하는 에디터
+
+cd gittest > 폴더 들어가기
+my project : working dir, 로컬 저장소
+
+master : 브랜치 
+
+.git 에 저장됨. 
+
+staging area 에 올리면 파일 추적함
+
+- : 삭제
+@@ :  수정된 라인
++ :  추가된 것
+
+한 번 추적 > 계속 추척 >  modified 상태
+
+add :  스테이징 영역으로 올림
+
+가장 오래된 것이 밑으로 log
+
+commit id : commit 뒤에 있는 것 복사
+
+원복 히스토리가 계속 남아있음
+
+다른 git 가져오는 것 clone > init 없이 클론만 > 다운로드
+이름이 git 이어서 ls -la > .git 이 아니라 이름인 git이 들어감
+
+git remote -v > 마스터 origin 이름 확인 (b)
+
+init > master branch 생성 , .git 생성 > 명령어를 칠 수 있는 상태
+
+* : 현재 사용되는 브런치를 가리침
+
+헤드의 포인터 변수는 마스터를 가리킴
+
+커밋 2 생성과 동시에 master 브랜치는 가장 최신 커밋을 가르키는 포인터
+이전 코드 정보는 해시코드로 들어감
+
+현재 마스터 브랜치의 스냅샷만 알면된다
+헤드 -> 현재 브랜치
+
+git branch 명령어는 브런치 생성만 한다
+>브랜치 이동을 따로 해야한다
+
+(그림)				<c5 생성
+master > c1 생성 > c2 생성 > c4 생성
+		login-feature 생성 > c3 생성
+head -> login-feature
+(c4 이전은 c2)
+
+git log --all :   모든 커밋 나옴
+
+git bash 프로그램 :  putty (명령어로 확인해야함)
+
+master에서 side가 들어갈 수 있어서 브랜치를 이용함
+master에는 최대한 커밋반영을 신중하게 함
+
+브랜치 위치만 변경됨
+
+한 번 삭제된 브랜치는 < 머지 되면 삭제됨
+
+현재 브런지 master 중심으로 머지해야함
+이전 커밋 정보가 들어간다 c3
+
+3way merge 대상 : 공통 커밋, 최신 커밋 2개
+
+3way 안되는 케이스
+c3 -c7 커밋 생성
+confict 충돌과정 : c3, c7, merge 가 대상
+
+분홍색 > 여러 팀에 걸쳐있음
+
+브랜치 활용 전략
+1. 중앙 저장소 집중형 : 세 명 다 마스터 브랜치에서 작업하는 것
+2. 기능별 브랜치 생성형 : 마스터 중심으로 이슈 브랜치 생성
+3.  gitflow 프로세스 : https://nvie.com/posts/a-successful-git-branching-model/
+마스터,  develop 브랜치 / develop -> release branch (고객)
+의미 > tag 0.1
+
+release 에 tagging
+
+sha1.online.com 사하
+

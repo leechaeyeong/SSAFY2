@@ -1,0 +1,19 @@
+\ : 개행하고 싶을 때
+
+http://bitly.kr/BI7pwZ2f
+
+!pip install Pandas
+
+열기준 series
+
+index > label index (중요) 기본으로 생성되는 인덱스 row
+value
+
+넘파이 > 객체 저장 방법
+
+이름 > 데이터 프레임에 접근하는 라벨이 된다
+(데이터 프레임에 인덱스 2개, row col)
+
+주가 20일 페이지 크롤링
+
+블로그 - 계획

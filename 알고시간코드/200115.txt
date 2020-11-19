@@ -1,0 +1,21 @@
+https://codepresso.kr
+서울공공데이터 
+
+판다스  apply 사용
+
+
+<오늘강의> : Dialogflow > chatbot
+
+python > pycharm 1환경 1프로젝트 > 가상환경
+프로젝트 마다 가상환경 > 필요한 프로그램 설치해서 사용
+python virtual env
+> pycharm 이 가상환경을 만들어줌
+
+roc ocr 프로그램?
+
+히진 금요일 강남
+
+url 정보를 맵핑 @
+
+Running on 로컬 호스트 / < 루트 경로 
+루트 경로 > route('/')

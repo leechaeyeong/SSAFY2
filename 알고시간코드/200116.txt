@@ -1,0 +1,35 @@
+json 딕셔너리
+
+response > 딕셔너리 보냄
+
+ngork 이  public ip를 가지고 있음
+
+fulfillment 에 url 주소 >https, /webhook
+
+getparameters 
+
+http://bitly.kr/4C4GNMy0
+
+
+안.녕.하.십.니.까. 지.하.철. 정.보.봇.입.니.다.
+
+■ 지하철 역명 유래 검색
+(1~4호선 일부 역만 검색 가능)
+
+■ 첫차 / 막차 시간 검색
+(수도권 전체 역 검색 가능)
+
+원.하.시.는. 역.의. 이.름.을. 입.력.해.주.세.요.
+
+
+"intent": {
+      "name": "projects/pizza-order-bot-jdknon/agent/intents/f3508021-c801-4666-85e0-24d8f570a4e8",
+      "displayName": "search-with-station-name"
+    }
+
+
+
+"intent": {
+      "name": "projects/pizza-order-bot-jdknon/agent/intents/f3508021-c801-4666-85e0-24d8f570a4e8",
+      "displayName": "search-with-station-name"
+    }

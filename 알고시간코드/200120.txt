@@ -1,0 +1,96 @@
+sqld
+리눅스 마스터2급
+
+자바>웹>spring
+
+2/15 알고리즘 자격증 시험
+
+프로그래머 : 계획을 짜는 사람
+
+free sw
+open sw : 라이브러리 자유롭게 추가 가능
+
+jre - 자바를 실행하는 환경
+jdk - 자바를 개발하는 환경 >se 버전
+me - 마이크로 에디션, 반도체에 프로그래밍 입힐때, 임베
+se - standard  edition, 표준 버전
+ee 버전 - 네트워크와 분산환경 포함, 기업형 분산 환경
+openjdk - 
+jdk zulu > azul (8.33.0.1)
+
+zulu path >환경변수 추가
+환경변수 path 목록 
+새로만들기 < C:\Program Files\Zulu\zulu-8 추가 (bin까지)
+cmd > java 확인 (cmd 닫고 다시)
+(내컴> 속성> 고급 시스템 설정)
+
+
+bin : 실행폴더
+lib : 관련 api 잇는 위치
+
+java_home : 다른 프로그램들이 java 위치를 물었을 때 필요
+자바가 설치된 위치를 알려줌
+
+java ee 버전 설치 > 웹 구현 때문
+
+workspace 작업공간 <여기에 저장됨
+
+[여기까지 설치]
+
+write once, run anywhere : java 특징 - 효율
+<c언어의 어려움 극복 ( 1. 메모리 접근, 메모리 할당, 수거 ) < 비용극복
+(2. 운영체제마다 최적화를 다시해야함) 
+
+jvm : 메모리 관리 다 해줌( 자바에서)
+
+java 는 jre 만 깔면 모든 운영체제에서 실행 가능
+
+객체지향은 언어적인 특징임
+객체지향 - 효율중시, 재사용성, 개발자에게 쉽게 cus
+
+A.java B.java
+
+cbd : component base development, 공통되는 데이터를 component 로
+빼내서 사용가능
+
+http://70.12.108.80:9090/download_java/
+
+class naming : 첫문자 대문자, 이어지는 단어의 첫문자 대문자, 나머지 소문자
+		숫자는 가능(맨앞은 안됨), 특수문자($,_만 가능)
+		특수문자 비추천(inner class가 $로 가져감)
+		(_ : jsp가 서블릿으로 변환될 때 사용한다)
+variable/ method naming : 첫문자 소문자, 이어지는 단어의 첫문자 대문자,
+		나머지 소문자, 숫자가능(맨앞 안됨), 특수문자 안됨.
+
+class : 실행가능한 조각
+
+자동완성 : 
+
+dir
+javac HelloTest.java
+
+컴파일 : 실행 시간만 필요함.
+vs 실행할때 컴파일 ex) html : 인터프린터, 최초 실행시 속도 떨어짐
+>
+자바는 둘다 가능. 컴파일했을때 > 반컴파일.> byte
+jvm 위에서 동작할 수 잇는 상태로 변경됨.
+
+java HelloTest  : 실행됨
+
+입력 	저장 - memory	출력
+	연산 - cpu
+
+변수의 종류 : 데이터를 메모리에 적재하는 단위
+<기초 데이터 타입>
+정수 (-,+,0포함 소수점x 숫자) - byte 8bit, short 16bit, int 32bit, long 64bit
+실수 (-,+,0포함 소수점o 숫자) - float 32bit, double 64bit
+boolean 논리(true, false) 
+문자 char
+
+
+string : 일종의 class
+
+노란줄 < 경고\
+
+강제 캐스팅 = 명시적 캐스팅
+

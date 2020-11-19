@@ -1,0 +1,65 @@
+colab 콜랩 > gpu 장비를 무료로 사용
+
+런타임 > 유형 > gpu 사용
+
+코드실행 > shift enter
+
+리눅스 명령어 실행 > !
+
+삭제 > ctrl m d
+아래로 줄 생성 >ctrl m b
+위로 줄 생성>ctrl m a
+
+크롤링
+
+리스트 ->  soft copy 메모리 주소값이 복사됨.
+hard copy
+
+
+dicti.get('key'
+
+
+p 157 
+파일말고 메모리 값만 수정됨
+
+
+http://bitly.kr/vLVWYuzp
+
+==================================================
+#과제 2 (아직)
+import requests
+from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
+
+ua=UserAgent()
+header={'user-agent':ua.chrome}
+
+page=requests.get('https://codingbat.com/java', headers=header)
+
+data= page.text
+soup=BeautifulSoup(data,'lxml')
+
+base_url = 'https://codingbat.com/'
+
+#네모칸 모두 summ
+all_divs = soup.find_all('div',class_='summ')
+all_links = [base_url + div.a['href'] for div in all_divs]
+
+
+for link in all_links:
+  page=requests.get(link, headers=header)
+  data= page.text
+  soup=BeautifulSoup(data,'lxml')
+  
+  all_td = soup.find_all('td',width='200')
+  question_links = [base_url + td.a['href'] for td in all_td]
+
+
+#problem_statement = 
+#examples = 
+
+
+for key in question_links:
+  print(key)
+
+
