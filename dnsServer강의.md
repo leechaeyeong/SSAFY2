@@ -8,7 +8,7 @@
 >
 > DNS 서버를 통해 구글의 IP 주소를 얻어오고, IP주소로 접속합니다
 
-![image-20200729111639826](C:\Users\multicampus\AppData\Roaming\Typora\typora-user-images\image-20200729111639826.png)
+![image-20200729111639826](SSAFY2/img/image-20200729111639826.png)
 
 domain name server : DNS
 
